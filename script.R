@@ -25,6 +25,10 @@ summary(df_numerico)
 
 
 #7. Cuantos pedidos diferentes hay
-df$Pedido <- paste(df$Invoice, df$StockCode, df$InvoiceDate, df$`Customer ID`, df$Country, sep = "_")
-num_pedidos_distintos <- length(unique(df$Pedido))
-print(num_pedidos_distintos)
+length(unique(df$Invoice))
+unique(df$Invoice)
+
+#10.	Calcula el precio medio de producto por pedido
+diez<-df%>%
+  group_by(Description)%>%
+  summarize(media=mean(Price))
