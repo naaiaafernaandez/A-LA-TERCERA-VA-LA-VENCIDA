@@ -32,3 +32,13 @@ unique(df$Invoice)
 diez<-df%>%
   group_by(Description)%>%
   summarize(media=mean(Price))
+
+#12.	Calcula el número de productos por pedido
+doce<-df%>%
+  group_by(Invoice)%>%
+  summarize(productos=sum(Quantity))
+
+#13.	Calcula el precio por pedido
+trece<-df%>%
+  group_by(Invoice)%>%
+  summarize(precio=sum(Price*Quantity))
